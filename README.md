@@ -1,5 +1,5 @@
 # dotfiles
-----
+
 vim requirements:
 nerdtree
 completor
