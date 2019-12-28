@@ -2,7 +2,7 @@
 (setq inhibit-startup-screen t)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-(set-default-font "Ubuntu Mono-13")
+(set-default-font "Ubuntu Mono-16")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -17,7 +17,7 @@
    (quote
     ("47ec21abaa6642fefec1b7ace282221574c2dd7ef7715c099af5629926eb4fd7" default)))
  '(frame-brackground-mode (quote dark))
- '(package-selected-packages (quote (gruber-darker-theme))))
+ '(package-selected-packages (quote (magit gruber-darker-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -30,3 +30,6 @@
 	     '("melpa" . "https://melpa.org/packages/"))
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key [?\C-,] 'replace-string)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'sr-speedbar)
+(when window-system (set-frame-size (selected-frame) 135 45))
