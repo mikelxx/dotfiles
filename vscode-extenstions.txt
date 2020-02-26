@@ -3,3 +3,7 @@ donjayamanne.githistory
 dracula-theme.theme-dracula
 eamodio.gitlens
 justusadam.language-haskell
+atomiks.moonlight
+ms-python.python
+ms-vscode.csharp
+taniarascia.new-moon-vscode
