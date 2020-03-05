@@ -6,8 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go'
-Plug 'scrooloose/nerdtree'
 Plug 'maralla/completor.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'dense-analysis/ale'
@@ -21,6 +19,7 @@ set guioptions-=L
 set wildmenu
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 set number
+set backspace=indent,eol,start
 let g:ale_linters = {
 			\'javascript': ['eslint'],
 			\}
