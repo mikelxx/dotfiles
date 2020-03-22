@@ -3,7 +3,7 @@
 (tool-bar-mode 0)
 (ido-mode 1)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages"))
+	     '("melpa" . "https://melpa.org/packages/"))
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
