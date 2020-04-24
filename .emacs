@@ -32,4 +32,6 @@
 
 (drag-stuff-define-keys)
 
+(setq js2-include-node-externs t)
+
 (add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . js2-mode))
