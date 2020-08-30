@@ -10,28 +10,5 @@
     (global-display-line-numbers-mode)
   (global-linum-mode))
 
-(require 'flycheck)
-
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
-
-(add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'after-init-hook 'global-flycheck-mode)
-(drag-stuff-global-mode)
-
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)
-
-(setq-default flycheck-disabled-checkers
-	      (append flycheck-disabled-checkers
-		      '(javascript-jshint)
-		      '(haskell-stack-ghc)))
-(setq-default flycheck-temp-prefix ".flycheck")
-(flycheck-add-mode 'haskell-ghc 'haskell-mode)
-(flycheck-add-mode 'javascript-eslint 'js2-mode)
-
-(drag-stuff-define-keys)
-
-(setq js2-include-node-externs t)
-
-(add-to-list 'auto-mode-alist `(,(rx ".js" string-end) . js2-mode))
