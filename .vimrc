@@ -4,23 +4,28 @@ filetype indent plugin on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ajh17/VimCompletesMe'
 Plug 'sheerun/vim-polyglot'
+Plug 'ajh17/VimCompletesMe'
+Plug 'luochen1990/rainbow'
 Plug 'dense-analysis/ale'
-Plug 'fugalh/desert.vim'
-Plug 'phanviet/vim-monokai-pro'
+Plug 'laxhh/vim-gruber-darker'
 
 call plug#end()
 
+colorscheme gruber-darker
+
+set termguicolors
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 set wildmenu
-" set termguicolors
+set tabstop=4
+set shiftwidth=4
+set expandtab
+let g:rainbow_active = 1
 set relativenumber
+set number
 let g:ale_linters = {
 			\'javascript': ['eslint'],
 			\'asm': [],
