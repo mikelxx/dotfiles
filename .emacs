@@ -14,29 +14,37 @@
 ;; editing settings
 (setq-default indent-tabs-mode nil)
 (setq create-lockfiles nil)
-(setq ns-alternate-modifier 'meta)
-(setq ns-right-alternate-modifier 'none)
-
-;; modes setups
-(global-whitespace-mode t)
-(setq
- whitespace-style '(face tabs spaces trailing space-before-tab indentation space-after-tab space-mark tab-mark))
 
 (if (version<= "26.0.50" emacs-version)
     (global-display-line-numbers-mode)
   (global-linum-mode))
 
-(require 'company)
-(setq company-idle-delay 1)
-(setq company-minimum-prefix-length 3)
-(add-hook 'after-init-hook 'global-company-mode)
+;; melpa
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-(require 'flycheck)
-(add-hook 'after-init-hook 'global-flycheck-mode)
-(setq-default flycheck-disabled-checkers
-              (append flycheck-disabled-checkers
-                      '(javascript-jshint)
-                      '(python-pylint)))
+;; macos
+;; (setq ns-alternate-modifier 'meta)
+;; (setq ns-right-alternate-modifier 'none)
+;; (exec-path-from-shell-initialize)
+
+;; modes setups
+
+;; (global-whitespace-mode t)
+;; (setq
+;;  whitespace-style '(face tabs spaces trailing space-before-tab indentation space-after-tab space-mark tab-mark))
+
+;; (require 'company)
+;; (setq company-idle-delay 1)
+;; (setq company-minimum-prefix-length 3)
+;; (add-hook 'after-init-hook 'global-company-mode)
+
+;; (require 'flycheck)
+;; (add-hook 'after-init-hook 'global-flycheck-mode)
+;; (setq-default flycheck-disabled-checkers
+;;               (append flycheck-disabled-checkers
+;;                       '(javascript-jshint)
+;;                       '(python-pylint)))
+
 ;; (flycheck-add-mode 'javascript-eslint 'js2-mode)
 ;; (flycheck-add-mode 'python-pylint 'python-mode)
 ;; (setf (flycheck-checker-get 'python-pylint 'command)
@@ -45,8 +53,6 @@
 
 ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 ;; (customize-set-variable 'js2-include-node-externs t)
-
-(exec-path-from-shell-initialize)
 
 ;; (require 'lsp-mode)
 ;; (setq lsp-eldoc-render-all t)
