@@ -13,13 +13,16 @@ filetype indent plugin on
 
 "colorscheme gruber-darker
 
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+endif
+
 set incsearch
 "set termguicolors
 set hlsearch
-"set guioptions-=m
-"set guioptions-=T
-"set guioptions-=r
-"set guioptions-=L
 set ruler
 set ai
 set wildmenu
@@ -30,3 +33,7 @@ set expandtab
 set number
 set path+=**
 set backspace=indent,eol,start
+set mouse=a
+set colorcolumn=80
+set guicursor=
+set laststatus=0
