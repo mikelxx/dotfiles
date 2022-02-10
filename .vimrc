@@ -21,7 +21,7 @@ if has("gui_running")
 endif
 
 set incsearch
-"set termguicolors
+set termguicolors
 set hlsearch
 set ruler
 set ai
