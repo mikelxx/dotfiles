@@ -21,14 +21,15 @@
 (setq custom-file (make-temp-file ".emacs-custom-"))
 (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 (setq tramp-auto-save-directory "/tmp")
+(setq backup-directory-alist '(("/tmp")))
 
 (custom-set-variables
- '(package-selected-packages '(exec-path-from-shell editorconfig go-mode rust-mode flycheck helm-lsp multiple-cursors lsp-ui helm-ag helm-gtags helm-xref use-package lsp-mode magit format-all gruber-darker-theme ggtags helm company eglot))
+ '(package-selected-packages '(exec-path-from-shell editorconfig go-mode rust-mode flycheck helm-lsp multiple-cursors lsp-ui helm-ag helm-gtags helm-xref use-package lsp-mode magit format-all gruber-darker-theme ggtags helm company eglot modus-themes))
  '(whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark)))
 
 ;; Theme and font
 
-(load-theme 'gruber-darker t)
+(load-theme 'modus-vivendi t)
 ;; (set-frame-font "DejaVu Sans Mono-12")
 ;; (set-frame-font "Source Code Pro-12")
 ;; (set-frame-font "Fantasque Sans Mono-14")
@@ -62,7 +63,7 @@
 (setq-default lsp-enable-symbol-highlighting nil)
 
 (require 'company)
-(setq company-idle-delay 1)
+(setq company-idle-delay 0.3)
 (setq company-minimum-prefix-length 1)
 (add-hook 'c-mode-hook 'company-mode)
 (add-hook 'c++-mode-hook 'company-mode)
@@ -96,3 +97,6 @@
 (add-hook 'c-mode-hook 'helm-mode)
 (add-hook 'c++-mode-hook 'helm-mode)
 (global-whitespace-mode)
+
+(global-origami-mode)
+(global-set-key (kbd "<C-return>") 'origami-toggle-node)
