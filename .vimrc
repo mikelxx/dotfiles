@@ -25,9 +25,12 @@ set number
 set path+=**
 set backspace=indent,eol,start
 set mouse=a
-set colorcolumn=80
+set colorcolumn=81
 set guicursor=a:blinkon0
 
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+autocmd FileType gitcommit set textwidth=72
+autocmd FileType gitcommit set textwidth=73
