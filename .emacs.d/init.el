@@ -23,8 +23,10 @@
 (setq tramp-auto-save-directory "/tmp")
 (setq backup-directory-alist '(("/tmp")))
 
+;; remove exec-path-from-shell when on windows !!
+
 (custom-set-variables
- '(package-selected-packages '(exec-path-from-shell editorconfig go-mode rust-mode flycheck helm-lsp multiple-cursors lsp-ui helm-ag helm-gtags helm-xref use-package lsp-mode magit format-all gruber-darker-theme ggtags helm company eglot modus-themes))
+ '(package-selected-packages '(exec-path-from-shell editorconfig go-mode rust-mode flycheck helm-lsp multiple-cursors lsp-ui helm-ag helm-gtags helm-xref use-package lsp-mode magit format-all gruber-darker-theme ggtags helm company eglot modus-themes ivy origami))
  '(whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark)))
 
 ;; Theme and font
@@ -71,10 +73,8 @@
 ;; (add-hook 'c-mode-hook 'eglot-ensure)
 ;; (add-hook 'c++-mode-hook 'eglot-ensure)
 
-;; (add-hook 'c-mode-hook 'lsp)
+;; (add-hook 'c-mode-hook 'lsp-deferred)
 (add-hook 'c++-mode-hook 'lsp-deferred)
-
-(exec-path-from-shell-initialize)
 
 (require 'helm-rg)
 
