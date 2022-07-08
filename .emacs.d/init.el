@@ -100,3 +100,6 @@
 
 (global-origami-mode)
 (global-set-key (kbd "<C-return>") 'origami-toggle-node)
+
+(global-set-key (kbd "C-<") 'indent-rigidly-left-to-tab-stop)
+(global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
