@@ -22,6 +22,8 @@
 (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 (setq tramp-auto-save-directory "/tmp")
 (setq backup-directory-alist '(("/tmp")))
+(setq default-directory "~/")
+(set-language-environment "UTF-8")
 
 ;; remove exec-path-from-shell when on windows !!
 
