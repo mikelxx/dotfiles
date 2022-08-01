@@ -109,3 +109,5 @@
 
 (global-set-key (kbd "C-<") 'indent-rigidly-left-to-tab-stop)
 (global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
+
+(global-set-key (kbd "M-\\") 'ff-find-other-file)
