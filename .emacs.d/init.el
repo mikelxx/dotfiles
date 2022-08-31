@@ -115,3 +115,5 @@
 (global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
 
 (global-set-key (kbd "M-\\") 'ff-find-other-file)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
