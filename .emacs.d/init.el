@@ -1,3 +1,5 @@
+(load "~/.emacs.d/asm-hook.el")
+
 (package-initialize)
 (setq inhibit-startup-screen t)
 (menu-bar-mode 0)
@@ -61,6 +63,8 @@
 
 ;; (require 'eglot)
 ;; (add-to-list 'eglot-server-programs '((c++-mode c-mode) . ("clangd-14" "-j=4" "-background-index" "--log=error" "--clang-tidy" "--enable-config")))
+
+(add-hook 'asm-mode-hook 'asm-mode-not-annoying)
 
 (require 'lsp-mode)
 (setq lsp-clients-clangd-args '("-j=4" "-background-index" "--log=error" "--clang-tidy" "--enable-config"))
