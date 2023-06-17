@@ -1,21 +1,24 @@
-set nocompatible
 syntax on
 filetype indent plugin on
 
+function! BootstrapPackages()
+    execute '!' . 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+    if has("nvim")
+        execute '!' . 'git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim'
+    endif
+endfunction
+
+function! ChangeScaleFactor(delta)
+    let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+endfunction
+
 call plug#begin('~/.vim/plugged')
-Plug 'arcticicestudio/nord-vim'
-Plug 'shaunsingh/nord.nvim'
-Plug 'navarasu/onedark.nvim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'ajh17/VimCompletesMe'
-Plug 'timakro/vim-yadi'
-Plug 'frankier/vim-colors-solarized'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'cocateh/vim-gruber-darker'
-Plug 'jremmen/vim-ripgrep'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'junegunn/goyo.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'cocateh/VimCompletesMe'
 call plug#end()
 
 if has("gui_running")
@@ -25,33 +28,7 @@ if has("gui_running")
     set guioptions-=L
 endif
 
-lua << END
-require('lualine').setup {
-    sections = {
-        lualine_x = {
-            'encoding',
-            {
-                'fileformat',
-                symbols = {
-                    unix = 'unix',
-                    dos = 'dos',
-                    mac = 'mac',
-                }
-            },
-            'filetype'
-        }
-    }
-}
-END
-
-" let g:onedark_config = {
-"     \ 'style': 'darker',
-" \}
-
-" colo gruber-darker
-
-set background=dark
-colo solarized
+set nocompatible
 set incsearch
 set termguicolors
 set hlsearch
@@ -65,29 +42,41 @@ set mouse=a
 set clipboard+=unnamedplus
 set nowrap
 set scrolloff=5
-
+set guicursor=n-v-c-i:block
+set cursorline
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
+set listchars=tab:»\ ,trail:·
+set list
 set colorcolumn=81
+set guifont=Iosevka\ Extended:h9
+
+colo gruber-darker
+
+if has("nvim")
+    lua require('main')
+    set runtimepath+=~/.config/nvim/lua
+endif
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-
-autocmd FileType gitcommit set textwidth=72
-autocmd FileType gitcommit set textwidth=73
-
-autocmd FileType cpp set colorcolumn=121
-
-autocmd FileType go set tabstop=8
-autocmd FileType go set shiftwidth=8
-autocmd FileType go set noexpandtab
-
-nnoremap gr :Rg<CR>
-nmap <C-w>; :copen<CR>
-map <F5> :make <bar> :copen<CR>
-
-let g:neovide_cursor_animation_length=0
 let g:rg_binary="/home/michal/.cargo/bin/rg"
-set guifont=JetBrains\ Mono:h9
+let g:neovide_cursor_animation_length=0
+let g:neovide_scale_factor=1.0
+let g:fzf_layout = { 'down': '30%' }
+
+autocmd FileType gitcommit set textwidth=72 textwidth=73
+autocmd FileType c         set colorcolumn=81 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType cpp       set colorcolumn=101 tabstop=4 shiftwidth=4 expandtab
+autocmd FileType rust      set colorcolumn=101 tabstop=4 shiftwidth=4 expandtab
+autocmd FileType go        set colorcolumn=0 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType make      set colorcolumn=81 tabstop=8 shiftwidth=8 noexpandtab
+autocmd BufWritePre * :%s/\s\+$//e
+
+map <F5> :make <bar> :copen<CR>
+nmap <C-w>; :copen<CR>
+nmap <C-P> :FZF<CR>
+noremap <C-ScrollWheelUp> :call ChangeScaleFactor(1.25)<CR>
+noremap <C-ScrollWheelDown> :call ChangeScaleFactor(1/1.25)<CR>
+nnoremap gr :Rg<CR>
