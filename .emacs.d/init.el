@@ -51,7 +51,17 @@
 (global-set-key (kbd "C-<") 'indent-rigidly-left-to-tab-stop)
 (global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
 
-(load-theme 'gruber-darker t)
+(defun load-theme-by-time ()
+  (setq hour (string-to-number (substring (current-time-string) 11 13)))
+  (mapcar #'disable-theme custom-enabled-themes)
+  (if (< hour 20)
+      (load-theme 'leuven t)
+    (load-theme 'gruber-darker t)))
+
+(load-theme-by-time)
+
+(run-with-timer 0 (* 30 60) #'load-theme-by-time)
+
 (set-frame-font "Hack-11")
 
 (exec-path-from-shell-initialize)

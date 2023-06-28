@@ -13,11 +13,16 @@ function! ChangeScaleFactor(delta)
     let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
 endfunction
 
+function! ChangeScaleFactor(delta)
+    let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+endfunction
+
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'cocateh/vim-gruber-darker'
+Plug 'gzagatti/vim-leuven-theme'
 Plug 'cocateh/VimCompletesMe'
 call plug#end()
 
@@ -52,11 +57,15 @@ set list
 set colorcolumn=81
 set guifont=Iosevka\ Extended:h9
 
-colo gruber-darker
-
 if has("nvim")
     lua require('main')
     set runtimepath+=~/.config/nvim/lua
+
+    set termguicolors
+    set cursorline
+    call SetColorScheme(0)
+
+    call timer_start(900000, function('SetColorScheme'), {'repeat': -1})
 endif
 
 let g:loaded_netrw = 1
