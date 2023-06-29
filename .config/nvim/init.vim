@@ -13,17 +13,23 @@ function! ChangeScaleFactor(delta)
     let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
 endfunction
 
-function! ChangeScaleFactor(delta)
-    let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+function! SetColorScheme(timer_id)
+    if strftime('%H') < 20 || strftime('%H') > 8
+        set background=light
+        colo solarized
+    else
+        set background=dark
+        colo gruber-darker
+    endif
 endfunction
 
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'cocateh/vim-gruber-darker'
-Plug 'gzagatti/vim-leuven-theme'
 Plug 'cocateh/VimCompletesMe'
+Plug 'cocateh/vim-gruber-darker'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 call plug#end()
 
 if has("gui_running")
@@ -81,6 +87,7 @@ autocmd FileType cpp       set colorcolumn=101 tabstop=4 shiftwidth=4 expandtab
 autocmd FileType rust      set colorcolumn=101 tabstop=4 shiftwidth=4 expandtab
 autocmd FileType go        set colorcolumn=0 tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType make      set colorcolumn=81 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType python    set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab
 autocmd BufWritePre * :%s/\s\+$//e
 
 map <F5> :make <bar> :copen<CR>

@@ -54,7 +54,7 @@
 (defun load-theme-by-time ()
   (setq hour (string-to-number (substring (current-time-string) 11 13)))
   (mapcar #'disable-theme custom-enabled-themes)
-  (if (< hour 20)
+  (if (or (< hour 20) (< 8 hour))
       (load-theme 'leuven t)
     (load-theme 'gruber-darker t)))
 
