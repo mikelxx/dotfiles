@@ -1,6 +1,5 @@
 (setq package-list
-      '(good-scroll
-        exec-path-from-shell
+      '(exec-path-from-shell
         magit
         yasnippet
         projectile

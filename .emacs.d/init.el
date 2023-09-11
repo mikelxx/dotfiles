@@ -20,6 +20,13 @@
               indent-tabs-mode nil
               c-basic-offset 4)
 
+(defun load-theme-by-time ()
+  (setq hour (string-to-number (substring (current-time-string) 11 13)))
+  (mapcar #'disable-theme custom-enabled-themes)
+  (if (or (< hour 20) (< 8 hour))
+      (load-theme 'leuven t)
+    (load-theme 'gruber-darker t)))
+
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (column-number-mode 1)
@@ -51,21 +58,10 @@
 (global-set-key (kbd "C-<") 'indent-rigidly-left-to-tab-stop)
 (global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
 
-(defun load-theme-by-time ()
-  (setq hour (string-to-number (substring (current-time-string) 11 13)))
-  (mapcar #'disable-theme custom-enabled-themes)
-  (if (or (< hour 20) (< 8 hour))
-      (load-theme 'leuven t)
-    (load-theme 'gruber-darker t)))
+(load-theme 'gruber-darker t)
 
-(load-theme-by-time)
-
-(run-with-timer 0 (* 30 60) #'load-theme-by-time)
-
-(set-frame-font "Hack-11")
-
-(exec-path-from-shell-initialize)
-(good-scroll-mode)
+(if (not (eq system-type 'windows-nt))
+    (exec-path-from-shell-initialize))
 
 (add-hook 'c++-mode-common-hook
 	  (lambda ()
