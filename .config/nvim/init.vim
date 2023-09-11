@@ -53,7 +53,7 @@ set mouse=a
 set clipboard+=unnamedplus
 set nowrap
 set scrolloff=5
-set guicursor=n-v-c-i:block
+" set guicursor=n-v-c-i:block
 set cursorline
 set tabstop=4
 set shiftwidth=4
@@ -61,7 +61,6 @@ set expandtab
 set listchars=tab:»\ ,trail:·
 set list
 set colorcolumn=81
-set guifont=Iosevka\ Extended:h9
 
 if has("nvim")
     lua require('main')
@@ -69,10 +68,12 @@ if has("nvim")
 
     set termguicolors
     set cursorline
-    call SetColorScheme(0)
+    " call SetColorScheme(0)
 
-    call timer_start(900000, function('SetColorScheme'), {'repeat': -1})
+    " call timer_start(900000, function('SetColorScheme'), {'repeat': -1})
 endif
+
+colo gruber-darker
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1

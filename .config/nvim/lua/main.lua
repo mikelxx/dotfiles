@@ -7,12 +7,12 @@ packer.startup(function(use)
     use 'NMAC427/guess-indent.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'neovim/nvim-lspconfig'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use 'hrsh7th/cmp-path'
-    -- use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/nvim-cmp'
-    -- use 'L3MON4D3/LuaSnip'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
 end)
 
 local lspconfig = require('lspconfig')
@@ -60,50 +60,47 @@ lualine.setup {
 
 guess_indent.setup {}
 
--- cmp.setup {
---     snippet = {
---         expand = function(args)
---             luasnip.lsp_expand(args.body)
---         end
---     },
---     mapping = {
---         ['<Tab>'] = cmp.mapping(function(fallback)
---             if cmp.visible() then
---                 cmp.select_next_item()
---                 cmp.confirm()
---                 cmp.confirm();
---             elseif luasnip.expand_or_jumpable() then
---                 luasnip.expand_or_jump()
---                 cmp.select_next_item()
---                 cmp.confirm()
---             elseif has_words_before() then
---                 cmp.complete()
---                 cmp.select_next_item()
---                 cmp.confirm()
---             else
---                 fallback()
---             end
---         end, { 'i', 's'}),
---         ['<S-Tab>'] = cmp.mapping(function(fallback)
---             if cmp.visible() then
---                 cmp.select_prev_item()
---             elseif luasnip.jumpable(-1) then
---                 luasnip.jump(-1)
---             else
---                 fallback()
---             end
---         end, { 'i', 's'})
---     },
---     sources = cmp.config.sources({
---         { name = 'nvim_lsp' },
---         { name = 'luasnip' }
---     }, {
---         { name = 'buffer' }
---     }),
---     completion = {
---         autocomplete = false
---     }
--- }
+cmp.setup {
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end
+    },
+    mapping = {
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+                cmp.confirm()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+                cmp.select_next_item()
+            elseif has_words_before() then
+                cmp.complete()
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end, { 'i', 's'}),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's'})
+    },
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' }
+    }, {
+        { name = 'buffer' }
+    }),
+    completion = {
+        autocomplete = false
+    }
+}
 
 lspconfig.rust_analyzer.setup {
     autostart = false;
