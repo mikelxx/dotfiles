@@ -17,7 +17,8 @@
         go-mode
         rust-mode
         cmake-mode
-        tuareg))
+        tuareg
+        standard-themes))
 
 (defun local-bootstrap-packages ()
   (interactive)
