@@ -3,10 +3,6 @@
         magit
         yasnippet
         projectile
-        counsel
-        counsel-projectile
-        ivy
-        swiper
         dtrt-indent
         centered-window
         highlight-symbol
@@ -17,12 +13,28 @@
         go-mode
         rust-mode
         cmake-mode
+        zig-mode
         tuareg
-        standard-themes))
+        standard-themes
+        nyan-mode
+        company
+        eldoc-box
+        rg
+        auctex
+        powershell
+        use-package
+        markdown-mode
+        editorconfig
+        solarized-theme
+        latex-preview-pane
+        almost-mono-themes))
 
 (defun local-bootstrap-packages ()
-  (interactive)
   (package-refresh-contents)
   (dolist (package package-list)
     (unless (package-installed-p package)
       (package-install package))))
+
+(unless (file-exists-p "~/.emacs.d/.initialized-packages")
+  (local-bootstrap-packages)
+  (write-region "" nil "~/.emacs.d/.initialized-packages"))
