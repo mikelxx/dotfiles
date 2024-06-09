@@ -31,7 +31,7 @@
   "Load set theme based on current time"
   (setq hour (string-to-number (substring (current-time-string) 11 13)))
   (mapcar #'disable-theme custom-enabled-themes)
-  (if (and (< theme-night-switch-hour 20) (< theme-day-switch-hour hour))
+  (if (and (< hour theme-night-switch-hour) (< theme-day-switch-hour hour))
       (load-theme default-day-theme t)
     (load-theme default-night-theme t)))
 
