@@ -5,7 +5,9 @@
 (setq ns-alternate-modifier 'meta
       ns-right-alternate-modifier 'none
       initial-frame-alist '((top . 40) (left . 10) (width . 128) (height . 68))
-      default-frame-alist '((top . 40) (left . 10) (width . 128) (height . 68)))
+      default-frame-alist '((top . 40) (left . 10) (width . 128) (height . 68))
+      default-day-theme 'almost-mono-cream
+      default-night-theme 'almost-mono-gray)
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
