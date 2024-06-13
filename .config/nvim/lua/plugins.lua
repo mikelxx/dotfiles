@@ -1,33 +1,42 @@
-
-vim.cmd [[packadd packer.nvim]]
-
-local packer = require('packer');
-
-packer.startup(function(use)
-    use 'NMAC427/guess-indent.nvim'
-    use 'nvim-lualine/lualine.nvim'
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/nvim-cmp'
-    use 'L3MON4D3/LuaSnip'
-end)
-
-local lspconfig = require('lspconfig')
-local cmp = require('cmp')
-local guess_indent = require('guess-indent')
-local lualine = require('lualine')
-local luasnip = require('luasnip')
-
-local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+local path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.uv.fs_stat(path) then
+    vim.fn.system({
+        'git',
+        'clone',
+        '--filter=blob:none',
+        '--depth=1',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable',
+        path
+    })
 end
 
-lualine.setup {
+local plugins = {
+    { 'nvim-treesitter/nvim-treesitter' },
+    { 'NMAC427/guess-indent.nvim' },
+    { 'nvim-lualine/lualine.nvim' },
+    { 'neovim/nvim-lspconfig' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-cmdline' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'L3MON4D3/LuaSnip' },
+    { 'nvim-lua/plenary.nvim' },
+    { 'nvim-telescope/telescope.nvim' },
+    { 'cocateh/vim-gruber-darker' }
+}
+
+require('lazy').setup(plugins)
+
+require('nvim-treesitter.configs').setup {
+    ensure_installed = { 'vimdoc', 'lua' },
+    auto_install = true
+}
+
+require('guess-indent').setup {}
+
+require('lualine').setup {
     options = {
         component_separators = { left = '|', right = '|'},
         section_separators = { left = '', right = ''}
@@ -58,7 +67,14 @@ lualine.setup {
     }
 }
 
-guess_indent.setup {}
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 cmp.setup {
     snippet = {
@@ -102,6 +118,7 @@ cmp.setup {
     }
 }
 
+local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup {
     autostart = false;
 }
@@ -141,9 +158,6 @@ vim.fn.sign_define('DiagnosticSignHint', {
     numhl = ''
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        client.server_capabilities.semanticTokensProvider = nil
-    end
-});
+require('telescope').setup {}
+
+vim.cmd.colorscheme('gruber-darker')
