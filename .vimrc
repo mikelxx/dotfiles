@@ -1,12 +1,5 @@
-set nocompatible
 syntax on
 filetype indent plugin on
-
-"call plug#begin('~/.vim/plugged')
-"Plug 'editorconfig/editorconfig-vim'
-"Plug 'sheerun/vim-polyglot'
-"Plug 'ajh17/VimCompletesMe'
-"call plug#end()
 
 if has("gui_running")
     set guioptions-=m
@@ -15,6 +8,7 @@ if has("gui_running")
     set guioptions-=L
 endif
 
+set nocompatible
 set incsearch
 set termguicolors
 set hlsearch
@@ -25,12 +19,21 @@ set number
 set path+=**
 set backspace=indent,eol,start
 set mouse=a
-set colorcolumn=81
-set guicursor=a:blinkon0
-
+set clipboard+=unnamedplus
+set nowrap
+set scrolloff=5
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set listchars=tab:»\ ,trail:·
+set list
+set colorcolumn=81
 
-autocmd FileType gitcommit set textwidth=72
-autocmd FileType gitcommit set textwidth=73
+autocmd FileType gitcommit set textwidth=72 textwidth=73
+autocmd FileType c         set colorcolumn=81 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType cpp       set colorcolumn=101 tabstop=4 shiftwidth=4 expandtab
+autocmd FileType rust      set colorcolumn=101 tabstop=4 shiftwidth=4 expandtab
+autocmd FileType go        set colorcolumn=0 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType make      set colorcolumn=81 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType python    set colorcolumn=80 tabstop=4 shiftwidth=4 expandtab
+" autocmd BufWritePre * :%s/\s\+$//e
