@@ -29,6 +29,11 @@ local plugins = {
 
 require('lazy').setup(plugins)
 
+-- This order is for a reason, becuase on Windows clang tends to put itself in
+-- the PATH by default, and MSVC does not, and for some reason I always have some
+-- bootleg version of gcc in the PATH
+require('nvim-treesitter.install').compilers = { 'clang', 'gcc' }
+
 require('nvim-treesitter.configs').setup {
     ensure_installed = { 'vimdoc', 'lua' },
     auto_install = true
