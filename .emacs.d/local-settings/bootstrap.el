@@ -27,7 +27,9 @@
         editorconfig
         solarized-theme
         latex-preview-pane
-        almost-mono-themes))
+        almost-mono-themes
+        yabaki-theme
+        white-sand-theme))
 
 (defun local-bootstrap-packages ()
   (package-refresh-contents)

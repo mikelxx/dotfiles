@@ -1,5 +1,8 @@
 (exec-path-from-shell-initialize)
 
+(setq default-day-theme 'white-sand
+      default-night-theme 'yabaki)
+
 (ignore-errors
   (require 'ansi-color)
   (defun local-colorize-compilation-buffer ()

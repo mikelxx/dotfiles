@@ -4,8 +4,8 @@
       default-frame-alist '((top . 40) (left . 10) (width . 240) (height . 50))
       split-height-threshold nil
       split-width-threshold 0
-      default-day-theme 'solarized-selenized-light
-      default-night-theme 'solarized-selenized-black)
+      default-day-theme 'white-sand
+      default-night-theme 'yabaki)
 
 (split-window-horizontally)
 (load-theme-by-time)
