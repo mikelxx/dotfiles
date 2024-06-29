@@ -124,12 +124,17 @@ cmp.setup {
 }
 
 local lspconfig = require('lspconfig')
+
 lspconfig.rust_analyzer.setup {
-    autostart = false;
+    autostart = false
 }
 
 lspconfig.clangd.setup {
-    autostart = false;
+    autostart = false
+}
+
+lspconfig.pyright.setup {
+    autostart = false
 }
 
 vim.diagnostic.config({
