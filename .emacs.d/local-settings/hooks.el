@@ -27,3 +27,6 @@
 
 (add-hook 'LaTeX-mode-hook '(lambda ()
                               (prettify-symbols-mode 1)))
+
+(add-hook 'jai-mode-hook '(lambda ()
+                            (setq display-fill-column-indicator nil)))
