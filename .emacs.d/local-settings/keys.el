@@ -9,7 +9,7 @@
 (global-set-key (kbd "<f5>") 'recompile)
 (global-set-key (kbd "M-n") 'flymake-goto-next-error)
 (global-set-key (kbd "M-p") 'flymake-goto-prev-error)
-(global-set-key (kbd "M-return") 'eglot-code-actions)
+(global-set-key (kbd "M-<return>") 'eglot-code-actions)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
