@@ -17,7 +17,7 @@
   "Default nighttime theme"
   :type '(const :tag 'standard-dark nil))
 
-(defcustom theme-day-switch-hour 8
+(defcustom theme-day-switch-hour 7
   "Time at which the theme is switched to a daytime theme"
   :group 'theme-switcher
   :type '(integer))
