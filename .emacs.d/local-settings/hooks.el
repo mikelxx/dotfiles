@@ -30,3 +30,9 @@
 
 (add-hook 'jai-mode-hook '(lambda ()
                             (setq display-fill-column-indicator nil)))
+
+(add-hook 'lisp-mode-hook '(lambda ()
+                             (slime-mode)))
+
+(add-hook 'tuareg-mode-hook '(lambda ()
+                               (merlin-mode)))

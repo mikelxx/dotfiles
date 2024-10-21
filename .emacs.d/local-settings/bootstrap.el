@@ -28,8 +28,9 @@
         solarized-theme
         latex-preview-pane
         almost-mono-themes
-        yabaki-theme
-        white-sand-theme))
+        white-sand-theme
+        slime
+        merlin))
 
 (defun local-bootstrap-packages ()
   (package-refresh-contents)

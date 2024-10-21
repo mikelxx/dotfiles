@@ -17,6 +17,7 @@
       erc-user-full-name "cocateh"
       ring-bell-function 'ignore
       projectile-indexing-method 'alien
+      inferior-lisp-program "sbcl"
       custom-file "~/.emacs.d/custom.el")
 
 (setq-default comment-style 'extra-line
@@ -44,6 +45,11 @@
 ;; Per-system configuration
 (if (file-exists-p "~/.emacs.d/per-system.el")
     (load "~/.emacs.d/per-system.el"))
+
+;; SLIME configuration
+(if (and (not (eq system-type 'windows-nt))
+         (file-exists-p "~/.local/share/quicklisp/slime-helper.el"))
+      (load "~/.local/share/quicklisp/slime-helper.el"))
 
 ;; Custom file
 (load "~/.emacs.d/custom.el")
