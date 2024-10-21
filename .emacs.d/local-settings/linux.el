@@ -6,3 +6,5 @@
     (when (eq major-mode 'compilation-mode)
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
   (add-hook 'compilation-filter-hook 'local-colorize-compilation-buffer))
+
+(load-theme 'high t)

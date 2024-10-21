@@ -9,6 +9,8 @@
         multiple-cursors
         gruber-darker-theme
         haskell-mode
+        swift-mode
+        csharp-mode
         erlang
         go-mode
         rust-mode

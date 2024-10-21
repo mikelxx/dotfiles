@@ -23,7 +23,8 @@
 (setq-default comment-style 'extra-line
               display-fill-column-indicator-column 81
               indent-tabs-mode nil
-              c-basic-offset 4)
+              c-basic-offset 4
+              truncate-lines t)
 
 (set-language-environment "UTF-8")
 
