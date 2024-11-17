@@ -170,4 +170,4 @@ vim.fn.sign_define('DiagnosticSignHint', {
 
 require('telescope').setup {}
 
-vim.cmd.colorscheme('gruber-darker')
+vim.cmd.colorscheme('high')
