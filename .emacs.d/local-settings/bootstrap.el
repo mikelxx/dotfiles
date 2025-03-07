@@ -7,7 +7,26 @@
         centered-window
         highlight-symbol
         multiple-cursors
+        nyan-mode
+        company
+        eldoc-box
+        rg
+        auctex
+        use-package
+        editorconfig
+        latex-preview-pane
+        slime
+        merlin
+
+        ;; Themes
         gruber-darker-theme
+        standard-themes
+        almost-mono-themes
+        white-sand-theme
+        solarized-theme
+        ef-themes
+
+        ;; Language modes
         haskell-mode
         swift-mode
         csharp-mode
@@ -17,22 +36,13 @@
         cmake-mode
         zig-mode
         tuareg
-        standard-themes
-        nyan-mode
-        company
-        eldoc-box
-        rg
-        auctex
-        powershell
-        use-package
+        lua-mode
+        meson-mode
         markdown-mode
-        editorconfig
-        solarized-theme
-        latex-preview-pane
-        almost-mono-themes
-        white-sand-theme
-        slime
-        merlin))
+        powershell
+        ada-mode
+        kotlin-mode
+        scala-mode))
 
 (defun local-bootstrap-packages ()
   (package-refresh-contents)
