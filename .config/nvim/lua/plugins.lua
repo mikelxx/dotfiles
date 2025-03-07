@@ -103,13 +103,10 @@ cmp.setup {
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-                cmp.confirm()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
-                cmp.select_next_item()
             elseif has_words_before() then
                 cmp.complete()
-                cmp.select_next_item()
             else
                 fallback()
             end
