@@ -146,6 +146,10 @@ lspconfig.pyright.setup {
     autostart = false
 }
 
+lspconfig.ruby-lsp.setup {
+    autostart = false
+}
+
 vim.diagnostic.config({
     virtual_text = {
         prefix = '●',
