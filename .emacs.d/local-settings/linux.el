@@ -7,4 +7,5 @@
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
   (add-hook 'compilation-filter-hook 'local-colorize-compilation-buffer))
 
-(load-theme 'high t)
+(set-face-attribute 'default nil :font "Hack:size=12")
+(load-theme 'standard-light t)

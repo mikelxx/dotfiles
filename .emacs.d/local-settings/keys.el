@@ -1,4 +1,5 @@
 (global-set-key (kbd "C-c C-SPC") 'mc/edit-lines)
+(global-set-key (kbd "C-c C-p") 'projectile-find-file)
 (global-set-key (kbd "C-c '") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-c g") 'highlight-symbol)
 (global-set-key (kbd "C-c <") 'highlight-symbol-prev)

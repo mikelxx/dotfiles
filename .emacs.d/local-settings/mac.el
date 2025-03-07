@@ -1,6 +1,6 @@
 (exec-path-from-shell-initialize)
 
-(set-face-attribute 'default nil :font "SF Mono:size=12")
+(set-face-attribute 'default nil :font "SF Mono:size=12" :weight 'medium)
 
 (setq ns-alternate-modifier 'meta
       ns-right-alternate-modifier 'none
@@ -12,10 +12,11 @@
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
-(setq-default line-spacing 0.1)
+(setq-default line-spacing 0.1
+              truncate-lines t)
 
 (menu-bar-mode 1)
-(load-theme 'challenger-deep t)
+(load-theme 'modus-operandi t)
 ;; (load-theme-by-time)
 ;; (run-with-timer 0 (* 30 60) #'load-theme-by-time)
 
