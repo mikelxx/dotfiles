@@ -183,4 +183,4 @@ vim.fn.sign_define('DiagnosticSignHint', {
 
 require('telescope').setup {}
 
-vim.cmd.colorscheme('high')
+vim.cmd.colorscheme('retrobox')
