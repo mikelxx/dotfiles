@@ -13,8 +13,12 @@ end
 
 local plugins = {
     { 'nvim-treesitter/nvim-treesitter' },
+
     { 'NMAC427/guess-indent.nvim' },
+
     { 'nvim-lualine/lualine.nvim' },
+
+    -- Autocomplete and LSP
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
@@ -22,9 +26,17 @@ local plugins = {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
+
+    -- telescope
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope.nvim' },
-    { 'cocateh/vim-gruber-darker' }
+
+    -- Languages
+    { 'rluba/jai-vim' },
+
+    -- Themes
+    { 'cocateh/vim-gruber-darker' },
+    { 'ishan9299/modus-theme-vim' },
 }
 
 require('lazy').setup(plugins)
