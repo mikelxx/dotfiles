@@ -40,16 +40,15 @@ end
 
 local function python_autocmd()
     vim.opt.colorcolumn = '81'
-    vim.opt.tabstop = 8
-    vim.opt.shiftwidth = 8
-    vim.opt.expandtab = false
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+    vim.opt.expandtab = tru
 end
 
 local function trim_trailing_whitespace()
-    local view = vim.fn.winsaveview()
-    vim.cmd [[keepp %s/\\s\\+$//e]]
-    vim.cmd 'update'
-    vim.fn.winrestview(view)
+    local save_cursor = vim.fn.getpos('.')
+    vim.cmd([%s/\s\+$//e])
+    vim.fn.setpos('.', save_cursor)
 end
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
@@ -102,14 +101,13 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         pattern = '*',
-        command = '%s/\\s\\+$//e'
-        -- callback = function()
-        --     if vim.bo.filetype == 'markdown' then
-        --         return
-        --     end
+        callback = function()
+            if vim.bo.filetype == 'markdown' then
+                return
+            end
 
-        --     trim_trailing_whitespace()
-        -- end
+            trim_trailing_whitespace()
+        end
     }
 )
 

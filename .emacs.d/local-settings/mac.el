@@ -6,8 +6,8 @@
       ns-right-alternate-modifier 'none
       initial-frame-alist '((top . 40) (left . 10) (width . 128) (height . 68))
       default-frame-alist '((top . 40) (left . 10) (width . 128) (height . 68))
-      default-day-theme 'leuven
-      default-night-theme 'leuven-dark)
+      default-day-theme 'standard-light
+      default-night-theme 'standard-dark)
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -16,9 +16,7 @@
               truncate-lines t)
 
 (menu-bar-mode 1)
-(load-theme 'modus-operandi t)
-;; (load-theme-by-time)
-;; (run-with-timer 0 (* 30 60) #'load-theme-by-time)
+(load-theme 'high t)
 
 (ignore-errors
   (add-hook 'compilation-filter-hook '(lambda ()

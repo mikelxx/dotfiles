@@ -1,3 +1,6 @@
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 (global-set-key (kbd "C-c C-SPC") 'mc/edit-lines)
 (global-set-key (kbd "C-c C-p") 'projectile-find-file)
 (global-set-key (kbd "C-c '") 'set-rectangular-region-anchor)
@@ -12,5 +15,5 @@
 (global-set-key (kbd "M-p") 'flymake-goto-prev-error)
 (global-set-key (kbd "M-<return>") 'eglot-code-actions)
 
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+(define-key eglot-mode-map [C-down-mouse-1] 'xref-find-definitions-at-mouse)
+(define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)

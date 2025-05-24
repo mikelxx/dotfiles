@@ -18,7 +18,8 @@
       ring-bell-function 'ignore
       projectile-indexing-method 'alien
       inferior-lisp-program "sbcl"
-      custom-file "~/.emacs.d/custom.el")
+      custom-file "~/.emacs.d/custom.el"
+      eglot-ignored-server-capabilities '(:inlayHintProvider))
 
 (setq-default comment-style 'extra-line
               display-fill-column-indicator-column 81
@@ -31,11 +32,12 @@
 ;; Basic stuff loading
 ;; Order of loading these should be preserved, they depend on eachother
 (load "~/.emacs.d/local-settings/bootstrap.el")
-(load "~/.emacs.d/local-settings/keys.el")
 
 (require 'theme-switcher)
 (require 'jai-mode)
+(require 'eglot)
 
+(load "~/.emacs.d/local-settings/keys.el")
 (load "~/.emacs.d/local-settings/modes.el")
 (load "~/.emacs.d/local-settings/hooks.el")
 

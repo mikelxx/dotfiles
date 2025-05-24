@@ -24,6 +24,7 @@
         almost-mono-themes
         white-sand-theme
         solarized-theme
+        atom-one-dark-theme
         ef-themes
 
         ;; Language modes
@@ -42,7 +43,8 @@
         powershell
         ada-mode
         kotlin-mode
-        scala-mode))
+        scala-mode
+        jsonnet-mode))
 
 (defun local-bootstrap-packages ()
   (package-refresh-contents)

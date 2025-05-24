@@ -7,5 +7,5 @@
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
   (add-hook 'compilation-filter-hook 'local-colorize-compilation-buffer))
 
-(set-face-attribute 'default nil :font "Hack:size=12")
-(load-theme 'standard-light t)
+(set-face-attribute 'default nil :font "Liberation Mono:size=12" :weight 'medium)
+(load-theme 'atom-one-dark t)
