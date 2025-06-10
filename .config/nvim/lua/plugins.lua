@@ -36,7 +36,7 @@ local plugins = {
     { 'nvim-telescope/telescope.nvim' },
 
     -- Languages
-    { 'rluba/jai-vim' },
+    { 'rluba/jai.vim' },
     { 'google/vim-jsonnet' },
 
     -- Themes
@@ -211,7 +211,7 @@ lspconfig.pyright.setup {
     autostart = false
 }
 
-lspconfig.ruby-lsp.setup {
+lspconfig.ruby_lsp.setup {
     autostart = false,
     init_options = {
         formatter = 'standard',

@@ -36,6 +36,7 @@
 (require 'theme-switcher)
 (require 'jai-mode)
 (require 'eglot)
+(require 'dired)
 
 (load "~/.emacs.d/local-settings/keys.el")
 (load "~/.emacs.d/local-settings/modes.el")
